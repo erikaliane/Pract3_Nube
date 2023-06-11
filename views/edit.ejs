@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Estudiante</title>
+
+    <!-- Como un enlace -->
+<nav class="navbar navbar-black bg-black ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">Estudiantes</a>
+    </div>
+  </nav>
+  
+  
+  </head>
+  <body>
+   
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<% if (estudiante) { %>
+<div class="container mt-4">
+    <div class="card border-secondary">
+        <div class="card-header">Editar Estudiante</div>
+        <div class="card-body">
+            <form action="/update/<%= estudiante.codigo %>" method="post" enctype="multipart/form-data">
+                
+                <div class="mb-3">
+                <label for="estudiante" class="form-laber">CODIGO</label>
+                <input type="number" class="form-control" id="codigo" name="codigo" value="<%= estudiante.codigo %>" tabinex="1">
+                </div>
+
+                <div class="mb-3">
+                    <label for="estudiante" class="form-laber">NOMBRE</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="<%= estudiante.nombre %>" tabinex="1">
+                </div>
+
+                <div class="mb-3">
+                        <label for="estudiante" class="form-laber">APELLIDOS</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" value="<%= estudiante.apellidos %>" tabinex="1">
+                </div>
+
+                <div class="mb-3">
+                    <label for="estudiante" class="form-laber">CORREO</label>
+                    <input type="text" class="form-control" id="correo" name="correo" value="<%= estudiante.correo %>" tabinex="1">
+                 </div>
+                 <div class="mb-3">
+                  <label for="estudiante" class="form-laber">NUMERO</label>
+                  <input type="text" class="form-control" id="numero" name="numero" value="<%= estudiante.numero %>" tabinex="1">
+               </div> 
+               
+               <div class="mb-3">
+                <label for="estudiante" class="form-laber">Imagen Actual</label>
+                <input type="text" class="form-control" id="imagen" name="imagen" value="<%= estudiante.imagen %>"
+                       tabindex="1" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="file" class="form-laber">Seleccionar nueva imagen</label>
+                <input type="file" name="file" id="file" tabindex="1">
+            </div>
+                 <button type="submit" class="btn btn-success" tabinex="5">Guardar</button>
+                 <a href="/" class="btn btn-secondary">Cancelar</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<% } %>
+
+  </body>
+</html>
