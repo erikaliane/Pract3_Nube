@@ -9,12 +9,13 @@ const aws = require('aws-sdk');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+
+
 // Configuración del cliente de AWS S3
 const s3 = new aws.S3({
-  accessKeyId: 'AKIAXBX3WDY5BZAAYFHE',
-  secretAccessKey: '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'
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey:process.env.SECRET_ACCESS_KEY
 });
-
 
 
 router.get('/',(req,res)=>{

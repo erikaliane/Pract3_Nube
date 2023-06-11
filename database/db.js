@@ -1,18 +1,22 @@
 const mysql = require('mysql2');
 
-const conexion = mysql.createConnection({
-  host: 'containers-us-west-195.railway.app',
-  user: 'root',
-  password: 'MkdDOk38TsAGYvEdWB5e',
-  database: 'railway',
-  port: '6602',
-});
 
-conexion.connect((error) => {
-  if (error) {
-    console.error('El error de conexión es: ' + error);
-  }
-  console.log('Conectado a la BD');
-});
+const conexion = mysql.createConnection({
+    
+    host : process.env.DB_HOST ,
+    user :  process.env.DB_USER ,
+    password:  process.env.DB_PASSWORD ,
+    database:  process.env.DB_NAME ,
+    port : process.env.DB_PORT 
+})
+
+conexion.connect((error)=>{
+    
+    if(error){
+        console.error('El error de conexiòn es :' + error);
+    }
+    console.log('Conectado a la BD');
+})
+
 
 module.exports = conexion;
